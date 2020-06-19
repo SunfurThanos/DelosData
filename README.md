@@ -1,0 +1,122 @@
+
+DelosData 0.6
+=============
+
+API para Python para crear archivos de tipo diccionario (llave+valor), con propiedades únicas e innovadoras que permiten encontrar una llave de manera instantánea en cualquier tipo de ordenador, a diferencia de [Redis](https://aws.amazon.com/es/redis/) DelosData proporciona una escritura multiplataforma, portable, sencilla, eficaz y productiva, DelosData más que una alternativa es tu mejor opción para grandes volúmenes de datos.
+
+*Que es velocidad instantánea?* según mi criterio, si tu algoritmo en todas las N variantes siempre tardara desde 0,03 a 180 mili-segundos, entonces hablamos de un excelente marcador de velocidad constante, así que la velocidad de un algoritmo por software o por chip de CPU, tienen requerimientos diferentes, porque su naturaleza no es la misma para los N casos en donde interactuaran.
+
+---
+
+> ¿Que problemas resuelve DelosData?
+
+**Seguridad de datos** Sin las llaves, información básica + items codificados no se puede acceder a los datos que están guardados en el archivo, si la BD es robada ningún Hacker podrá violentarla, por primeras vez los datos de tu empresa estarán 100% seguros.
+
+**Productividad** Gracias a que todas las llaves se guardan en un único archivo en discos o SSD y no en la RAM, puede fácilmente cualquier usuario transportar o recuperar los datos a diferencia de [Redis](https://aws.amazon.com/es/redis/).
+
+**Rendimiento** Por ejemplo ahora Facebook, podría acceder a los datos de logeo de un usuario en un archivo que tenga más de 300 millones de llaves, en solo 3 milli-segundos desde un simple ordenador domestico, que tenga como mínimo, un procesador de un solo núcleo, 160 GB de disco y 256 MB de RAM.
+
+---
+
+> ejemplo de uso para el NLP
+
+Creando diccionario para 2 millones de palabras
+
+```python
+import DelosData
+
+archivo_BD = "./NLP words.xD"
+dict_db = DelosData.create(keys=2000000)
+dict_db.export(archivo_BD)
+```
+
+Abriendo archivo y insertando una nueva llave, ¿como saber si una llave existe?, cada vez que insertas una llave, el sistema detecta automáticamente si existe o no !para evitar eventos de corrupción!.
+
+```python
+import DelosData
+
+dict_db           = DelosData.open("./NLP words.xD")
+palabra           = 'Tirania'
+vector_raw        = 0.37484456
+vector_comprimido = vector_raw.toCompress()
+dict_db.add(palabra, vector_comprimido)
+```
+
+Si ya tienes abierto o abres nuevamente el archivo (BD) puedes leer una llave, que haya sido insertada
+
+```python
+print dict_db.get('Tirania').toDecompress()
+```
+
+¿como cerrar la BD de forma manual?
+
+```python
+dict_db.close()
+```
+
+DelosData es productivo y fácil de usar, ¿Te gusto quieres más ejemplos de uso?, !pues que esperas descarga DelosData y lee los ejemplos de la carpeta [samples](samples).
+
+---
+
+**NOTA** Esta API solo funciona en Python 2.7, en versiones superiores el soporte no esta disponible por ahora
+
+## ¿Como instalar DelosData?
+
+*PASO 1*
+- Asegúrese de tener instalado Python 2.7
+
+*PASO 2*
+- Instale en Python 2.7 el Potente FrameWork de productividad [DelosEgine](https://github.com/SunfurThanos/DelosEngine-ES)
+
+*PASO 3*
+- Hora ya puede instalar DelosData en Python 2.7, ejecutando el archivo [instalar.py](instalar.py)
+
+*FIN*
+- Felicidades ya puedes usar DelosData en Python 2.7 :)
+
+---
+
+**Licencia**: GNU GPL v3 <http://www.gnu.org/licenses/>, leer el archivo [LICENSE.md](LICENSE.md)
+
+---
+
+## ¿Foro de preguntas?
+
+- Para dirigir sus comentarios, remesas, dudas, ideas de desarrollo, por favor escriba...
+
+*correo*: hormigence123@gmail.com
+
+---
+
+## ¿Te gusta DelosData, quieres ayudar al proyecto?
+
+- Si consideras que el DelosData vale algo para tu día a día, puedes enviarme una remesa,
+con lo cual harás que el proyecto siga siendo ¡GRATUITO & LIBRE!...
+
+eres una empresa grande, pequeña, Freelance, ¿te interesa este proyecto?, !házmelo saber!, este proyecto necesita patrocinadores que deseen ayudar al proyecto con publicidad, donativos y sugerencias, los mismos serán incluidos en los créditos del proyecto como los HÉROES :)
+
+---
+
+## Herramientas en desarrollo en DelosData
+
+**Fiabilidad**: Asegurar al 1.000% la integridad cuando se insertan nuevos datos, la idea es preservar y asegurar los datos sin aumentar el tamaño del index que almacena los jumpers.
+
+**SSB**: Menor peso del index
+
+**CUSTOM 1**: Soporte para modificar los valores items de las llaves ya integradas.
+
+**CUSTOM 2**: Tamaño personalizable para los items.
+
+**CrytoG**: Codificar de manera ilegible un item de una determinada llave, pero por medio de una contraseña, es decir se utilizara los caracteres de la llave del propio item como contraseña para codificar y decodificar, pero manteniendo la longitud original de los datos, el propio algoritmo nunca sabrá si realmente se ha utilizado la contraseña correcta, con lo cual un atacante Hacker nunca sabrá si esta cerca o no de descifrar los datos robados, este algoritmo acepta una contraseña de longitud INFINITA, ni-siquiera si posees el código fuente del programa que codifica o decodifica se podrá hackear el algoritmo.
+
+**Find G8**: Soporte para hacer búsquedas por concurrencia numérica.
+
+**CUSTOM 3**: Los datos de los items conservaran su estructura de datos original, por ende si de valor colocas una lista, cuando generes una consulta te devolverá los datos en formato de lista, con cual se puede realizar consultas profesionales.
+
+**Auto-page**: Se le dice al sistema cual es el peso máximo por pagina (archivo), de esa manera podemos tener diccionarios dividido en varios archivos, útil para múltiples propósitos.
+
+**SuperDelete**: Ya con la herramienta de paginación creada es factible el borrado de llaves + valor, o solamente los valores de las llaves, el borrado casi instantáneo dependerá del valor de paginación establecida y de la potencia del ordenador.
+
+**Spider G9**: tecnología para cuantificar posiciones de memoria dinámica, esto permitirá hacer búsquedas por concurrencia avanzadas como por ejemplo, `el gato de color*caminaba*el tejado`, el sistema iterara todas las llaves que cumplan con ese patrón de concurrencia, esto permitirá que el procesado del big data sea un juego para niños, ya que las búsquedas serán muy rápidas lineales sin importar la cantidad de llaves del diccionario, primero el sistema genera un Array donde están todos los rangos posiciones de memoria donde se encuentra las llaves relacionadas con el patrón de búsqueda, ese procedimiento si es instantáneo, el procedimiento de iteración de rangos si es lineal.
+
+**Re-escritura**: GDATA esta hecho en Python desde 0 con un rendimiento asombroso e envidiable, aun así la idea es re-codificar el núcleo de GDATA en C++, de esa manera el rendimiento y velocidad de consulta sera 4 veces más rápido, de esta manera el proyecto estará terminado al 100%.
