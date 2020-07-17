@@ -1,83 +1,83 @@
 
-Crear BD
-========
+Create BD
+=========
 
-**create(keys=number)**
-Permite crear la BD, especificando cuantas llaves tendrá
+**create (keys = number)**
+Lets create the BD, specifying how many keys it will have
 
-**prediction\_size(size\_items=number)**
-Permite hacer una predicción de cuanto pesara la BD antes de ser creada
+**prediction\_size (size\_items = number) **
+Lets make a prediction of how much the DB will weigh before being created
 
 **size\_db**
-Podrás mostrar el peso de la BD generada.
+You can show the weight of the generated DB.
 
 **timeout = number**
-Variable que permite especificar, cuanto sera la frecuencia de actualizacion para la funcion de progreso.
+Variable that allows specifying how much the update frequency will be for the progress function.
 
 **export(file_db, func\_progress)**
-Función para exportar la BB a un archivo `creación final de la BD`, puedes especificar el archivo de salida y la función de progreso, es decir puedes asignar una función y allí mostrar el progreso de generación, ideal para grandes BD.
+Function to export the BB to a file `final creation of the BD`, you can specify the output file and the progress function, that is, you can assign a function and there show the generation progress, ideal for large BDs.
 
 ---
 
-Insertar llaves
-===============
+Insert keys
+===========
 
-**open(file_db)**
-Funcion para importar BD creada
+**open (file_db)**
+BD import function created
 
 **add**
-Permite insertar una llave + valor
+Lets you insert a key + value
 
 **close()**
-Cerrar BD
+Close BD
 
 **isClose**
-Detectar si la llave ha sido insertada
+Detect if the key has been inserted
 
 **keys**
-Numeros de llaves permitidas a insertar
+Numbers of keys allowed to insert
 
 **get\_inserts**
-Numeros de llaves insertadas
+Numbers of inserted keys
 
 ---
 
 ## Inserts-returns
 
-**YES**
-Llave insertada correctamente
+**AND IT IS**
+Key inserted correctly
 
 **EXIST**
-La llave ya existe
+The key already exists
 
 **table-UP**
-La tabla (index) esta llena
+The table (index) is full
 
 **item-size**
-El item sobre-pasa la longitud permitida
+The item overrides the allowed length
 
 **ERROR-CRICAL**
-Error critico de escritura
+Critical writing error
 
 **file-close**
-El archivo (BD) esta cerrada
+The file (BD) is closed
 
 ---
 
-ver llaves insertadas
-=====================
+see inserted keys
+=================
 
 **get(key\_name, time=bool)**
-Funcion para extraer el valor de una llave, tambien es posible validar si la llave no existe
+Function to extract the value of a key, it is also possible to validate if the key does not exist
 
 **close()**
-Cerrar BD
+Close BD
 
 **isClose**
-Detectar si la llave ha sido insertada
+Detect if the key has been inserted
 
 **keys**
-Numeros de llaves permitidas a insertar
+Numbers of keys allowed to insert
 
 **get\_inserts**
-Numeros de llaves insertadas
+Numbers of inserted keys

@@ -149,7 +149,7 @@ def isColition(FILE, TB):
 
 def decodificar_llave(llave_word, FILE, TB, len_name_cols, hiper_jumper_limited):
 	"""decodificando jumper (mostrando item): permite validar si una llave existe y extrae su valor (ITEM)"""
-	NUM_HASH = False
+	NUM_HASH     = False
 	index_header = isJumper(FILE, TB)
 
 	ENCODE = "0" + hashCode(llave_word)
