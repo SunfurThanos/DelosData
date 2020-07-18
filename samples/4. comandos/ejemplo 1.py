@@ -8,40 +8,51 @@ setWorkingDir()
 
 #-------------------------------------------------------------------------------------------
 
-file = "./saludos.xD"
-file.path.delete()
+salida = "./NLP words.xD"
+salida.path.delete()
 
 #-------------------------------------------------------------------------------------------
 
-# create BD
+# crear BD
 dict_db = DelosData.create(keys=1000)
-dict_db.export(file)
+dict_db.export(salida)
 
 #-------------------------------------------------------------------------------------------
 
-# import BD
-dict_db = DelosData.open(file)
+# importar BD
+dict_db = DelosData.open(salida)
 
 #-------------------------------------------------------------------------------------------
 
-identification_card = "25.969.358"
-new_profile         = "NAMES:Andrade Echarry:LOCALHOST:_3js7RHbLSHKV13qUFCVIhb"
+# datos a guardar
+palabra = 'Tirania'
+vector_raw = 0.37484456
+vector_comprimido = vector_raw.toCompress()
 
 #-------------------------------------------------------------------------------------------
 
-# insert key
-validar = dict_db.add(identification_card, new_profile)
+# insertando llave
+validar = dict_db.add(palabra, vector_comprimido)
 
 #-------------------------------------------------------------------------------------------
 
-# showing key item
-data = dict_db.get(identification_card)
-if data: print data.cut(":").group(2)
+# consultar valor guardado
+print dict_db.get(palabra).toDecompress()
+
+# total de llaves permitidas a insertar
+print dict_db.keys
+
+# total de llaves insertadas
+print dict_db.get_inserts
 
 #-------------------------------------------------------------------------------------------
 
-data = dict_db.get("26.111.456")
-if data:
-	print data.cut(":").group(2)
-else:
-	print "The required profile does not exist. Sorry"
+# cerrando lectura de BD
+dict_db.close()
+
+#-------------------------------------------------------------------------------------------
+
+# detectando si la BD esta cerrada
+print dict_db.isClose
+
+print dict_db.get(palabra)

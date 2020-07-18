@@ -4,22 +4,22 @@
 #--------------------------------------------------------------------------------------------------
 
 """
-  Author     : Sunfur Thanos
+  Autor       : Sunfur Thanos
 
-  Country    : Venezuela
+  Pais        : Venezuela
 
-  System     : Windows / Linux / Mac OS X | x32 / x64
+  Sistema     : Windows / Linux / Mac OS X | x32 / x64
 
-  Dependency : Python 2.5 / 2.6 / 2.7 | x32 / x64
+  Dependencia : Python 2.5 / 2.6 / 2.7 | x32 / x64
 
-  Usage      : Delete DelosData from Python (does not require administrative permissions)
+  Uso         : permite borrar DelosData de Python (no requiere permisos administrativos)
 
   Copyright (C) 2020 Sunfur Thanos. All rights reserved.
 
 """
 
 if not hasattr(__builtins__, "delos"):
-	print ("InstallError: DelosEngine is not installed :("); exit()
+	print ("InstallError: DelosEngine no esta instalado :("); exit()
 
 #--------------------------------------------------------------------------------------------------
 
@@ -33,12 +33,12 @@ setWorkingDir()
 
 try:
 	__import__("DelosData")
-except: exit ("InstallError: DelosData is not installed :(", time_sleep)
+except: exit ("InstallError: DelosData no esta instalado :(", time_sleep)
 
 #--------------------------------------------------------------------------------------------------
 
 if isPython3:
-	exit ("PythonError: DelosData is not compatible with Python3 :(", time_sleep)
+	exit ("PythonError: DelosData no es compatible con Python3 :(", time_sleep)
 
 #--------------------------------------------------------------------------------------------------
 
@@ -60,6 +60,6 @@ def delos_delete_plugin(NAME):
 #--------------------------------------------------------------------------------------------------
 
 if delos_delete_plugin("DelosData"):
-	exit ("DelosData successful deletion", time_sleep)
+	exit ("Borrado exitoso de DelosData", time_sleep)
 else:
-	exit ("PurgeError: DelosData could not be deleted :(", time_sleep)
+	exit ("PurgeError: no se pudo borrar DelosData :(", time_sleep)

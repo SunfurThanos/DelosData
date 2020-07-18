@@ -4,22 +4,22 @@
 #--------------------------------------------------------------------------------------------------
 
 """
-	Author     : Sunfur Thanos
+	Autor       : Sunfur Thanos
 
-	Country    : Venezuela
+	Pais        : Venezuela
 
-	System     : Windows / Linux / Mac OS X | x32 / x64
+	Sistema     : Windows / Linux / Mac OS X | x32 / x64
 
-	Dependency : Python 2.5 / 2.6 / 2.7 | x32 / x64
+	Dependencia : Python 2.5 / 2.6 / 2.7 | x32 / x64
 
-	Use        : allows to install DelosData in Python (does not require administrative permissions)
+	Uso         : permite instalar DelosData en Python (no requiere permisos administrativos)
 
 	Copyright (C) 2020 Sunfur Thanos. All rights reserved.
 
 """
 
 if not hasattr(__builtins__, "delos"):
-	print ("InstallError: DelosEngine is not installed :("); exit()
+	print ("InstallError: DelosEngine no esta instalado :("); exit()
 
 #--------------------------------------------------------------------------------------------------
 
@@ -33,13 +33,13 @@ time_sleep = 0.8 if isConsole else 0
 
 try:
 	__import__("DelosData")
-	exit ("InstallError: A previous version of DelosData already exists :)", time_sleep)
+	exit ("InstallError: Ya existe una version anterior de DelosData :)", time_sleep)
 except: pass
 
 #--------------------------------------------------------------------------------------------------
 
 if isPython3:
-	exit ("PythonError: DelosData is not compatible with Python3 :(", time_sleep)
+	exit ("PythonError: DelosData no es compatible con Python3 :(", time_sleep)
 
 
 #--------------------------------------------------------------------------------------------------
@@ -91,15 +91,15 @@ if plugin_archivo.path.move(directorio_copy):
 		import DelosData
 		peso = directorio_copy.path.size.info.join(" ")
 	except:
-		exit ("InstallError: could not install", time_sleep)
+		exit ("InstallError: no se pudo instalar", time_sleep)
 
-	mensaje = "** Installation successful\n"
-	mensaje+= "directory: '{directorio_python_plugins}'\n"
-	mensaje+= "Size: {peso}\n"
+	mensaje = "** instalacion exitosa\n"
+	mensaje+= "Directorio: '{directorio_python_plugins}'\n"
+	mensaje+= "Peso: {peso}\n"
 	mensaje+= "Version: {__build__}"
 
 	Sleep (mensaje.toF, time_sleep)
 
 else:
 
-	Sleep ("InstallError: could not install", time_sleep)
+	Sleep ("InstallError: no se pudo instalar", time_sleep)

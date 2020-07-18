@@ -8,34 +8,36 @@ setWorkingDir()
 
 #-------------------------------------------------------------------------------------------
 
-file_sample = "./file_sample.xD"
-file_sample.path.delete()
+salida = "./saludos.xD"
+salida.path.delete()
 
 #-------------------------------------------------------------------------------------------
 
-# create BD
+# crear BD
 dict_db = DelosData.create(keys=1000)
-dict_db.export(file_sample)
+dict_db.export(salida)
 
 #-------------------------------------------------------------------------------------------
 
-# import BD
-dict_db = DelosData.open(file_sample)
+# importar BD
+dict_db = DelosData.open(salida)
 
 #-------------------------------------------------------------------------------------------
 
-key  = "25.969.358"
-item = "NAMES:Andrade Echarry:LOCALHOST:_3X709ZHnD2dkCPUHQTdBWU2B0dYnkRbjHwz3pMTv40"
+cedula     = "25.969.358"
+perfil_new = "NAMES:Andrade Echarry:LOCALHOST:_3X709ZHnD2dkCPUHQTdBWU2B0dYnkRbjHwz3pMTv40"
 
 #-------------------------------------------------------------------------------------------
 
-# insert key
-dict_db.add(key, item)
+# insertando llave
+validar = dict_db.add(cedula, perfil_new)
 
 #-------------------------------------------------------------------------------------------
 
-# doing performance test (automatic)
-value, seconds = dict_db.get(key, time=True)
+# haciendo test de redimiento (manual)
+start_time = Application.time
+dict_db.get(cedula)
+seconds = Application.time - start_time
 
 print "%s seconds" % seconds.float(4)
 print "%s milliseconds" % seconds.toMs()

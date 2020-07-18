@@ -8,52 +8,52 @@ setWorkingDir()
 
 #-------------------------------------------------------------------------------------------
 
-file_sample = "./file_sample.xD"
-file_sample.path.delete()
+salida = "./saludos.xD"
+salida.path.delete()
 
 #-------------------------------------------------------------------------------------------
 
-# create BD
+# crear BD
 dict_db = DelosData.create(keys=4600)
-dict_db.export(file_sample)
+dict_db.export(salida)
 
 #-------------------------------------------------------------------------------------------
 
-# import BD
-dict_db = DelosData.open(file_sample)
+# importar BD
+dict_db = DelosData.open(salida)
 
 #-------------------------------------------------------------------------------------------
 
-key  = "25.969.358"
-item = "Andrade Echarry:localhost:_3js7RHbLSHKV13qUFCVIhb"
+cedula     = "25.969.358"
+perfil_new = "Andrade Echarry:localhost:_3js7RHbLSHKV13qUFCVIhb"
 
 #-------------------------------------------------------------------------------------------
 
-## insert
-validate = dict_db.add(key, item)
-if validate == "YES":
-	print "successfully created profile"
+## isertado
+validar = dict_db.add(cedula, perfil_new)
+if validar == "YES":
+	print "perfil creado correctamente"
 
 #-------------------------------------------------------------------------------------------
 
-validate = dict_db.add(key, item)
-if validate == "EXIST":
-	print "this profile already exists. Sorry"
+validar = dict_db.add(cedula, perfil_new)
+if validar == "EXIST":
+	print "este perfil ya existe. Sorry"
 
 #-------------------------------------------------------------------------------------------
 
 """
 
-YES          : key inserted correctly
+YES          : llave insertada correctamente
 
-EXIST        : the key already exists
+EXIST        : la llave ya existe
 
-table-UP     : table (index) is full
+table-UP     : la tabla (index) esta llena
 
-item-size    : the item exceeds the allowed length
+item-size    : el item sobre-pasa la longitud permitida
 
-ERROR-CRICAL : critical writing error
+ERROR-CRICAL : error critico de escritura
 
-file-close   : the file (BD) is closed
+file-close   : el archivo (BD) esta cerrada
 
 """

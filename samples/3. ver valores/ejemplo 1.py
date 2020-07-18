@@ -8,51 +8,40 @@ setWorkingDir()
 
 #-------------------------------------------------------------------------------------------
 
-file_sample = "./NLP words.xD"
-file_sample.path.delete()
+salida = "./saludos.xD"
+salida.path.delete()
 
 #-------------------------------------------------------------------------------------------
 
-# create BD
+# crear BD
 dict_db = DelosData.create(keys=1000)
-dict_db.export(file_sample)
+dict_db.export(salida)
 
 #-------------------------------------------------------------------------------------------
 
-# import BD
-dict_db = DelosData.open(file_sample)
+# importar BD
+dict_db = DelosData.open(salida)
 
 #-------------------------------------------------------------------------------------------
 
-# data to save
-word = 'Tyranny'
-vector_raw = 0.37484456
-vector_compress = vector_raw.toCompress()
+cedula     = "25.969.358"
+perfil_new = "NAMES:Andrade Echarry:LOCALHOST:_3js7RHbLSHKV13qUFCVIhb"
 
 #-------------------------------------------------------------------------------------------
 
-# insert key
-validate = dict_db.add(word, vector_compress)
+# insertando llave
+validar = dict_db.add(cedula, perfil_new)
 
 #-------------------------------------------------------------------------------------------
 
-# check saved value
-print dict_db.get(word).toDecompress()
-
-# Total of keys allowed to insert
-print dict_db.keys
-
-# total of inserted keys
-print dict_db.get_inserts
+# mostrando item de la llave
+datos = dict_db.get(cedula)
+if datos: print datos.cut(":").group(2)
 
 #-------------------------------------------------------------------------------------------
 
-# closing BD read
-dict_db.close()
-
-#-------------------------------------------------------------------------------------------
-
-# detecting if the DB is closed
-print dict_db.isClose
-
-print dict_db.get(word)
+datos = dict_db.get("26.111.456")
+if datos:
+	print datos.cut(":").group(2)
+else:
+	print "El perfil requerido no existe. Sorry"

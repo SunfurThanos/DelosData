@@ -8,16 +8,26 @@ setWorkingDir()
 
 #-------------------------------------------------------------------------------------------
 
-# design dictionary type BD
+archivo_db = "./prueba.chappie"
+archivo_db.path.delete()
+
+#-------------------------------------------------------------------------------------------
+
+# creando BD tipo diccionario
 dict_db = DelosData.create(keys=1000)
+validar = dict_db.export(archivo_db)
 
 #-------------------------------------------------------------------------------------------
 
-# predict the maximum weight you will have (does not include values)
-print dict_db.prediction_size()
+if validar:
+	print "la BD fue creada: {size_db}".toF
+else:
+	print "no se puedo crear, el archivo ya existe"
 
 #-------------------------------------------------------------------------------------------
 
-# predict the maximum weight you will have (including values)
-print dict_db.prediction_size(size_items=80)
+"""
 
+NOTA : la BD no puede sobrepasar los (93 GB), de lo contrario el Index colapsara y ocasionara errores graves de escritura y lectura.
+
+"""
