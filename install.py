@@ -4,7 +4,7 @@
 #--------------------------------------------------------------------------------------------------
 
 """
-	Autor       : Sunfur Thanos
+	Autor       : Andrade Echarry -> ALF
 
 	Pais        : Venezuela
 
@@ -14,7 +14,7 @@
 
 	Uso         : permite instalar DelosData en Python (no requiere permisos administrativos)
 
-	Copyright (C) 2020 Sunfur Thanos. All rights reserved.
+	Copyright (C) 2020 Andrade Echarry -> ALF. All rights reserved.
 
 """
 

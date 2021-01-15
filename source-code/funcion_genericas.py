@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-  Autor: Sunfur Thanos
+  Autor: Andrade Echarry -> ALF
 
   Pais : Venezuela
 
@@ -9,7 +9,7 @@
 
   Licencia : GNU GPL v3 <http://www.gnu.org/licenses/>
 
-  Copyright (C) 2020 Sunfur Thanos. All rights reserved.
+  Copyright (C) 2020 Andrade Echarry -> ALF. All rights reserved.
 
 """
 
@@ -149,7 +149,7 @@ def isColition(FILE, TB):
 
 def decodificar_llave(llave_word, FILE, TB, len_name_cols, hiper_jumper_limited):
 	"""decodificando jumper (mostrando item): permite validar si una llave existe y extrae su valor (ITEM)"""
-	NUM_HASH     = False
+	NUM_HASH = False
 	index_header = isJumper(FILE, TB)
 
 	ENCODE = "0" + hashCode(llave_word)

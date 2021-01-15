@@ -200,4 +200,4 @@ eres una empresa grande, pequeña, Freelance, ¿te interesa este proyecto?, !há
 
 ---
 
-*Sunfur Thanos* Si aprendes a estar abierto para adaptarte ¡seras invencible!
+*Andrade Echarry -> ALF* Si aprendes a estar abierto para adaptarte ¡seras invencible!
